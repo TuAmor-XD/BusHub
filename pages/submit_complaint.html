@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Submit Complaint - BusHub</title>
+    <title>Submit Complaint - BusWatch</title>
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,7 +21,7 @@
                         <svg class="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                         </svg>
-                        <span class="text-xl font-bold text-text-primary">BusHub</span>
+                        <span class="text-xl font-bold text-text-primary">BusWatch</span>
                     </a>
                 </div>
 
@@ -165,6 +165,36 @@
                                 Bus Route Information
                             </h2>
                             
+                            <!-- Route Schedule Display -->
+                            <div class="mb-6 p-4 bg-primary-50 border border-primary-200 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <img src="../assets/images/WhatsApp_Image_2025-08-19_at_15.54.19_606b1cc6-1756511785111.jpg" alt="University of Belize Bus Schedule" class="w-full h-auto rounded-md mb-3 max-w-md mx-auto" />
+                                </div>
+                                <div class="text-sm text-primary-700">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h4 class="font-medium mb-2">Standard Belize Bus Fares (BZD)</h4>
+                                            <ul class="space-y-1 text-xs">
+                                                <li>• Corozal & Ranchito: $20.00</li>
+                                                <li>• Calcutta - Concepcion: $19.00</li>
+                                                <li>• San Pedro - Santa Clara: $18.00</li>
+                                                <li>• Orange Walk - Carmelita: $15.00</li>
+                                                <li>• Biscayne: $11.00</li>
+                                                <li>• Boom: $8.00</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium mb-2">University Route Schedule</h4>
+                                            <ul class="space-y-1 text-xs">
+                                                <li>• Monday: Corozal 4:00 AM → UB 7:30 AM</li>
+                                                <li>• Friday: UB 3:00 PM → Corozal 7:00 PM</li>
+                                                <li>• Route subject to commuter usage</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <!-- Bus Route Dropdown -->
                                 <div>
@@ -174,14 +204,12 @@
                                     <div class="relative">
                                         <select id="busRoute" name="busRoute" class="form-input pr-10" required>
                                             <option value>Select bus route</option>
-                                            <option value="Route 1 - Downtown Express">Route 1 - Downtown Express</option>
-                                            <option value="Route 5 - University Line" selected>Route 5 - University Line</option>
-                                            <option value="Route 12 - Airport Shuttle">Route 12 - Airport Shuttle</option>
-                                            <option value="Route 18 - Mall Connector">Route 18 - Mall Connector</option>
-                                            <option value="Route 25 - Residential Loop">Route 25 - Residential Loop</option>
-                                            <option value="Route 42 - Industrial District">Route 42 - Industrial District</option>
-                                            <option value="Route 67 - Hospital Route">Route 67 - Hospital Route</option>
-                                            <option value="Route 89 - Night Service">Route 89 - Night Service</option>
+                                            <option value="Corozal to Belize City" selected>Corozal to Belize City</option>
+                                            <option value="Corozal to Belmopan Campus">Corozal to Belmopan Campus (University)</option>
+                                            <option value="Belize City to Benque/San Ignacio">Belize City to Benque/San Ignacio</option>
+                                            <option value="Northern Highway Express">Northern Highway Express</option>
+                                            <option value="Western Highway Route">Western Highway Route</option>
+                                            <option value="Hummingbird Highway">Hummingbird Highway</option>
                                         </select>
                                         <svg class="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-text-secondary pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
@@ -194,7 +222,10 @@
                                     <label for="location" class="block text-sm font-medium text-text-primary mb-2">
                                         Bus Stop/Location <span class="text-error">*</span>
                                     </label>
-                                    <input type="text" id="location" name="location" value="Main St & 5th Ave" class="form-input" placeholder="e.g., Main St & 5th Ave" required />
+                                    <input type="text" id="location" name="location" value="Corozal Bus Terminal" class="form-input" placeholder="e.g., Orange Walk Town, Ranchito" required />
+                                    <div class="mt-1 text-xs text-text-secondary">
+                                        Common stops: Corozal Terminal, Ranchito, Orange Walk, Belize City Terminal, San Ignacio
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -275,14 +306,14 @@
                                 <label for="description" class="block text-sm font-medium text-text-primary mb-2">
                                     Detailed Description <span class="text-error">*</span>
                                 </label>
-                                <textarea id="description" name="description" rows="6" class="form-input resize-none" placeholder="Please provide a detailed description of the issue you experienced. Include specific details such as what happened, when it occurred, and how it affected your journey." required maxlength="1000">The bus air conditioning system was completely non-functional during today's afternoon trip. Despite the outside temperature being over 85°F, passengers were forced to endure extremely uncomfortable conditions. Several elderly passengers appeared to be struggling with the heat, and multiple people requested the driver to address the issue. The driver mentioned that the AC had been broken for several days but no repairs had been scheduled. This is unacceptable for a public service, especially during summer months.</textarea>
+                                <textarea id="description" name="description" rows="6" class="form-input resize-none" placeholder="Please provide a detailed description of the issue you experienced. Include specific details such as fare amounts in BZD, bus stops, and how it affected your journey." required maxlength="1000">The bus driver charged me BZD $22.00 instead of the standard BZD $20.00 fare from Ranchito to University of Belize Belmopan Campus. Despite showing the official University bus schedule that clearly states the fare should be $20.00 for Ranchito passengers, the driver insisted on the higher amount. This happened on the Monday 4:00 AM service. Other passengers from Ranchito were also overcharged. When questioned, the driver became defensive and refused to provide a receipt. This is unacceptable for the University of Belize official bus service.</textarea>
                                 
                                 <div class="flex justify-between items-center mt-2">
                                     <p class="text-xs text-text-secondary">
-                                        Be specific and factual. Avoid personal attacks or inappropriate language.
+                                        Be specific about fares (use BZD currency), locations in Belize, and factual details.
                                     </p>
                                     <span id="charCount" class="text-xs text-text-secondary">
-                                        <span id="currentCount">567</span>/1000 characters
+                                        <span id="currentCount">485</span>/1000 characters
                                     </span>
                                 </div>
                             </div>
@@ -334,7 +365,7 @@
 
                 <!-- Sidebar -->
                 <div class="lg:col-span-1 space-y-6">
-                    <!-- Anonymous Preview -->
+                    <!-- Public Preview -->
                     <div class="bg-surface rounded-lg shadow-civic border border-border p-6">
                         <h3 class="text-lg font-semibold text-text-primary mb-4 flex items-center">
                             <svg class="w-5 h-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -347,22 +378,22 @@
                         <div class="bg-secondary-50 rounded-lg p-4 border border-secondary-200">
                             <div class="flex items-start space-x-3 mb-3">
                                 <div class="w-8 h-8 bg-accent-200 rounded-full flex items-center justify-center">
-                                    <span class="text-sm font-medium text-accent-600">CU</span>
+                                    <span class="text-sm font-medium text-accent-600">BU</span>
                                 </div>
                                 <div class="flex-1">
                                     <div class="flex items-center space-x-2">
-                                        <span class="text-sm font-medium text-text-primary">ConcernedUser47</span>
+                                        <span class="text-sm font-medium text-text-primary">BelizeUser92</span>
                                         <span class="text-xs text-text-secondary">• Just now</span>
                                     </div>
                                     <div class="flex items-center space-x-2 mt-1">
                                         <span class="status-badge status-warning">Mechanical Issues</span>
-                                        <span class="text-xs text-text-secondary">Route 5</span>
+                                        <span class="text-xs text-text-secondary">Corozal to Belize City</span>
                                     </div>
                                 </div>
                             </div>
                             
                             <p class="text-sm text-text-secondary leading-relaxed">
-                                The bus air conditioning system was completely non-functional during today's afternoon trip...
+                                The bus driver charged me BZD $22.00 instead of the standard BZD $20.00 fare from Ranchito to University of Belize Belmopan Campus...
                             </p>
                             
                             <div class="flex items-center justify-between mt-3 pt-3 border-t border-secondary-200">
@@ -388,7 +419,7 @@
                             <svg class="w-4 h-4 inline mr-1 text-primary" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
                             </svg>
-                            Your identity remains private. Only administrators can see your real name for moderation purposes.
+                            Your identity remains private. University and transport authorities can see your real name for verification purposes.
                         </p>
                     </div>
 
